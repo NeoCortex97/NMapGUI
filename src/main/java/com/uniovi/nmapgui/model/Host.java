@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElementWrapper;
 
 public class Host {
 	
@@ -89,11 +89,8 @@ public class Host {
 			return false;
 		Host other = (Host) obj;
 		if (address == null) {
-			if (other.address != null)
-				return false;
-		} else if (!address.equals(other.address))
-			return false;
-		return true;
+			return other.address == null;
+		} else return address.equals(other.address);
 	}
 
 	

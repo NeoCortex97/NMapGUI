@@ -27,11 +27,11 @@ import com.uniovi.nmapgui.util.Filefinder;
 
 @Controller
 public class WebController implements CommandExecutorObserver{
-	private List<Command> ongoingCommands  = new ArrayList<Command>();
-	private List<Command> finishedCommands = new ArrayList<Command>();
+	private final List<Command> ongoingCommands  = new ArrayList<Command>();
+	private final List<Command> finishedCommands = new ArrayList<Command>();
 	private Command command;
 	private boolean finishedCommandQueued=false;
-	private InitialConfigurator config = new InitialConfigurator();
+	private final InitialConfigurator config = new InitialConfigurator();
 
 	
 	@PostConstruct

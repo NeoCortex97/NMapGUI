@@ -23,12 +23,12 @@ public class NMapGuiModelTests {
 		address = new Address("1.1.1.1");
 		Address nul=null;
 		assertEquals("Address [address=1.1.1.1]", address.toString());
-		assertEquals(true,address.equals(address));
-		assertEquals(false,address.equals(nul));
-		assertEquals(false,address.equals(new Port()));
-		assertEquals(false,new Address().equals(address));
-		assertEquals(false,address.equals(new Address("2.2.2.2")));
-		assertEquals(true,address.equals(new Address("1.1.1.1")));
+        assertTrue(address.equals(address));
+        assertFalse(address.equals(nul));
+        assertFalse(address.equals(new Port()));
+        assertFalse(new Address().equals(address));
+        assertFalse(address.equals(new Address("2.2.2.2")));
+        assertTrue(address.equals(new Address("1.1.1.1")));
 	}
 	
 	@Test
@@ -88,12 +88,12 @@ public class NMapGuiModelTests {
 		host.setTrace(trace);
 		
 		Host nul=null;
-		assertEquals(true,host.equals(host));
-		assertEquals(false,host.equals(nul));
-		assertEquals(false,host.equals(new Port()));
-		assertEquals(false,new Host().equals(host));
-		assertEquals(false,host.equals(new Host(new Address("2.2.2.2"))));
-		assertEquals(true,host.equals(new Host(new Address("1.1.1.1"))));
+        assertTrue(host.equals(host));
+        assertFalse(host.equals(nul));
+        assertFalse(host.equals(new Port()));
+        assertFalse(new Host().equals(host));
+        assertFalse(host.equals(new Host(new Address("2.2.2.2"))));
+        assertTrue(host.equals(new Host(new Address("1.1.1.1"))));
 		
 		assertEquals("\nHost [address=Address [address=1.1.1.1], hostName=[Hostname [hostname=www.example.com]], "
 				+ "trace=[Hop [address=1.1.1.1, host=www.example.com]], status=Status [state=down, reason=Timed-out]" 

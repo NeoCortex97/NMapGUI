@@ -4,6 +4,6 @@ import com.uniovi.nmapgui.model.Command;
 
 public interface CommandExecutorObserver {
 	
-	 public void finishedCommand(Command cmd);
+	 void finishedCommand(Command cmd);
 
 }

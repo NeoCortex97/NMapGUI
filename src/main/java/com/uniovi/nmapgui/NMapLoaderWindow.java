@@ -41,8 +41,8 @@ public class NMapLoaderWindow extends JFrame {
 	private JButton stop;
 	private ConfigurableApplicationContext springContext;
 	private JButton go;
-	private CommandExecutorImpl executor = new CommandExecutorImpl(new Command("-V"));
-	private boolean nmapInstalled;
+	private final CommandExecutorImpl executor = new CommandExecutorImpl(new Command("-V"));
+	private final boolean nmapInstalled;
 
 	
 	public NMapLoaderWindow(){
@@ -119,7 +119,7 @@ public class NMapLoaderWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				start.setEnabled(false);
 				String[] args = {};
-				springContext = NMapGuiApplication.mainExec(args);
+				springContext = NMapGuiApplication.application(args);
 				start.setText("NMapGUI running");
 				go.setEnabled(true);
 				stop.setText("Stop NMapGUI");

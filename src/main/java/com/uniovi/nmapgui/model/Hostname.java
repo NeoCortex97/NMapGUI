@@ -1,6 +1,6 @@
 package com.uniovi.nmapgui.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlAttribute;
 
 public class Hostname {
 

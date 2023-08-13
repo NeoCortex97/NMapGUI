@@ -1,9 +1,9 @@
 package com.uniovi.nmapgui.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlTransient;
+import jakarta.xml.bind.annotation.XmlType;
 
 public class Port {
 	
@@ -13,10 +13,10 @@ public class Port {
 	private String protocol;
 	private int portId;
 	
-	public enum StateEnum{open, closed, filtered, unfiltered};
+	public enum StateEnum{open, closed, filtered, unfiltered}
 
-	
-	@XmlAttribute(name="protocol")
+
+    @XmlAttribute(name="protocol")
 	public String getProtocol() {
 		return protocol;
 	}

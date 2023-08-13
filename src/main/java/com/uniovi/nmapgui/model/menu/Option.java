@@ -1,6 +1,6 @@
 package com.uniovi.nmapgui.model.menu;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlAttribute;
 
 public class Option {
 	private String name="";

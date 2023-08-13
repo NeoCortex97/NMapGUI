@@ -1,24 +1,22 @@
 package com.uniovi.nmapgui;
 
-import static org.junit.Assert.*;
+import com.uniovi.nmapgui.util.Filefinder;
+import com.uniovi.nmapgui.util.TransInfoHtml;
+import org.junit.Test;
 
+import javax.xml.transform.TransformerException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
+import java.util.Collections;
 
-import javax.xml.transform.TransformerException;
-
-import org.junit.Test;
-
-import com.uniovi.nmapgui.util.Filefinder;
-import com.uniovi.nmapgui.util.TransInfoHtml;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class NMapGuiUtilTests {
 
@@ -26,7 +24,7 @@ public class NMapGuiUtilTests {
 	public void fileFinderTest() {
 		try {
 			Files.write(Paths.get(System.getProperty("java.io.tmpdir")+"/test.xml")
-				, Arrays.asList("Test"), Charset.forName("UTF-8"));		
+				, Collections.singletonList("Test"), StandardCharsets.UTF_8);
 			InputStream file = new Filefinder().find("test");			
 			
 			BufferedReader r = new BufferedReader(new InputStreamReader(file, StandardCharsets.UTF_8));

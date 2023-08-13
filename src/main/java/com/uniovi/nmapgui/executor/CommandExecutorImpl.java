@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 
 import com.uniovi.nmapgui.model.Command;
 import com.uniovi.nmapgui.model.ExecutionObjectFactory;
@@ -27,14 +27,14 @@ public class CommandExecutorImpl  implements CommandExecutor{
 	private Command cmd;
 	private String tempPath = System.getProperty("java.io.tmpdir")+"/";
 	private Thread commandThread; 
-	private ArrayList <CommandExecutorObserver> observers = new ArrayList<CommandExecutorObserver>();
+	private final ArrayList <CommandExecutorObserver> observers = new ArrayList<CommandExecutorObserver>();
 	
 	public CommandExecutorImpl(Command command) {		
 		this();
 		cmd=command;
 	}
 	
-	public CommandExecutorImpl(){};
+	public CommandExecutorImpl(){}
 
 	@Override
 	public boolean execute(){
@@ -114,7 +114,7 @@ public class CommandExecutorImpl  implements CommandExecutor{
 		List<String> commandList = new ArrayList<String>();
 		commandList.add("nmap");
 		commandList.addAll(splitOptions());
-		commandList.addAll(Arrays.asList(new String[]{"-oX" , getTempPath(), "--webxml"}));
+		commandList.addAll(Arrays.asList("-oX", getTempPath(), "--webxml"));
 		
 		return commandList.toArray(new String[]{});
 		
@@ -123,7 +123,7 @@ public class CommandExecutorImpl  implements CommandExecutor{
 	private List<String>  splitOptions(){
 		List<String> options = new ArrayList<>();
 		//Splits string by spaces other than the ones in substring quotes
-		Matcher matcher = Pattern.compile("\\s*([^(\"|\')]\\S*|\".+?\"|\'.+?\')\\s*").matcher(cmd.getText());
+		Matcher matcher = Pattern.compile("\\s*([^(\"|')]\\S*|\".+?\"|'.+?')\\s*").matcher(cmd.getText());
 		while (matcher.find())
 		    options.add(matcher.group(1));
 		

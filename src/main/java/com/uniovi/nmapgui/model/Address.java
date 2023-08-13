@@ -1,7 +1,7 @@
 package com.uniovi.nmapgui.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="address")
 public class Address {
@@ -37,11 +37,8 @@ public class Address {
 			return false;
 		Address other = (Address) obj;
 		if (address == null) {
-			if (other.address != null)
-				return false;
-		} else if (!address.equals(other.address))
-			return false;
-		return true;
+			return other.address == null;
+		} else return address.equals(other.address);
 	}
     
 	

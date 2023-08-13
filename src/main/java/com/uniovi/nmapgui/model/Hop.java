@@ -3,7 +3,7 @@ package com.uniovi.nmapgui.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlAttribute;
 
 public class Hop {
 	
